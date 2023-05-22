@@ -1,5 +1,7 @@
 import re
 import numpy as np
+import math
+from math import sqrt
 
 def init():
     print("Init...")
@@ -26,10 +28,58 @@ def find_short(s):
 def find_short_snygg(s):
     return len(sorted(s.split(), key=len)[0])
 
+
+# Camel-Case
+def to_camel_case(text):
+    if len(text) == 0 : return "An empy string was provided but not returned"
+    
+    
+    
+    return
+
+# Maskify
+def maskify(cc):
+    if len(cc) == 0: return ""
+    if len(cc)<=4:
+        return cc
+    
+    theText = ""
+    
+    rep = str(cc)[:len(cc) - 4]
+    for i, v in enumerate(str(cc)[:len(cc) - 4]):
+        theText += "#"
+    
+    
+    return theText + str(cc)[-4:]
+    
+
+# maskify bästa !
+def maskify2(cc):
+    return "#"*(len(cc)-4) + cc[-4:]
+
+
+def divisors(tal):
+    int_arr = []
+    
+    for n in range(2,int(tal)):
+        if int(tal) % n == 0:
+            int_arr.append(n)
+    
+    if len(int_arr) == 0:
+        return str(tal) + " is prime"
+    else:
+        return int_arr
+
+
+def divisors_final(num):
+    l = [a for a in range(2,num) if num%a == 0]
+    if len(l) == 0:
+        return str(num) + " is prime"
+    return l
+
 if __name__ == '__main__':
     init()
-    # print(sum_two_smallest_numbers([5, 8, 12, 18, 22]))
-    # print(sum_two_smallest_numbers([7, 15, 12, 18, 22]))
-    print(find_short("turns out random test cases are easier than writing out basic ones"))
+    print(divisors(25))
+    
 
 
